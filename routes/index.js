@@ -1,4 +1,4 @@
-//fetching the existing or the same instance instance of express as it is requiring secinid time     
+//fetching the existing or the same instance instance of express as it is requiring second time     
 const express=require('express');
 
 //exporting home_controllers
@@ -9,8 +9,6 @@ const router = express.Router();
 //accessig the home controller
 
 router.get('/',homeController.home);
-//accessing home2 cotroller
-router.get('/home2',homeController.home2);
 // if any /user request comes       
 router.use('/users',require('./users'));
 
