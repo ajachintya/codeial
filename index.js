@@ -8,6 +8,10 @@ const port=8000;
 //use express routes or telling it to use the router
 app.use('/',require('./routes'));
 
+//setting up ejs(view engine)
+app.set('view engine','ejs');
+app.set('views','./views');
+
 //create a listen on specified port or path
 app.listen(port,function(err){
     if(err){
