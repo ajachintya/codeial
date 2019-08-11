@@ -5,6 +5,9 @@ const app=express();
 //port 
 const port=8000;
 
+//use express routes or telling it to use the router
+app.use('/',require('./routes'));
+
 //create a listen on specified port or path
 app.listen(port,function(err){
     if(err){
