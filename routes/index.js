@@ -6,9 +6,9 @@ const homeController=require('../controller/home_controller');
 //create a route handlers.
 const router = express.Router();
 
-//accessig the home controller
-
+//accessig the home controller request
 router.get('/',homeController.home);
+
 // if any /user request comes       
 router.use('/users',require('./users'));
 

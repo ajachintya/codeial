@@ -4,6 +4,15 @@ const express=require('express');
 const app=express();
 //port 
 const port=8000;
+//telling where to look for my static files
+app.use(express.static('./assets'));
+const expressLayouts=require('express-ejs-layouts');
+app.use(expressLayouts);
+
+//extract styles and scripts from sub pages in the layout
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
 
 //use express routes or telling it to use the router
 app.use('/',require('./routes'));
