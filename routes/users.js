@@ -5,9 +5,13 @@ const express=require('express');
 const router=express.Router();
 
 //fetching users_controller
-const usersContrller=require('../controller/users_controller');
+const usersController=require('../controller/users_controller');
 //for prifile
-router.get('/profile',usersContrller.profile);
+router.get('/profile',usersController.profile);
+
+router.get('/sign-up',usersController.signUp);
+router.get('/sign-in',usersController.signIn);
+
 
 //exporting this to be available to the index.js 
 module.exports=router;
