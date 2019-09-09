@@ -12,6 +12,6 @@ router.get('/profile',usersController.profile);
 router.get('/sign-up',usersController.signUp);
 router.get('/sign-in',usersController.signIn);
 
-
+router.post('/create',usersController.create);
 //exporting this to be available to the index.js 
 module.exports=router;

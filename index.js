@@ -13,6 +13,10 @@ app.use(expressLayouts);
 
 const db=require('./config/mongoose');
 
+app.use(express.urlencoded());
+
+app.use(cookieParser());
+
 //extract styles and scripts from sub pages in the layout
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
