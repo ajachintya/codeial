@@ -13,5 +13,8 @@ router.get('/sign-up',usersController.signUp);
 router.get('/sign-in',usersController.signIn);
 
 router.post('/create',usersController.create);
+router.post('/create-session',usersController.createSession);
+
+router.get('/users-sign-out',usersController.signOut);
 //exporting this to be available to the index.js 
 module.exports=router;
