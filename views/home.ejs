@@ -1,6 +1,6 @@
-
+<center>
 <h1>Codeal home!</h1>
-
+<% if(locals.user){%>
 <section id="feed-posts">
     <h4>Posts</h4>
     <form action="/posts/create" method="POST" id="new-post-form">
@@ -8,6 +8,8 @@
        <input type="submit" value="Post">
 
     </form>
+</section>
+  <%}%>  
     <div id="posts-list" style="width:15%; height:50px;">
          <ul>
                 <% for(let i of posts){%>
@@ -19,5 +21,6 @@
          </ul>
 
     </div>
+   
 
-</section>
+</center>
