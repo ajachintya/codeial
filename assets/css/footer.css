@@ -1,0 +1,18 @@
+footer {
+  height: 50px;
+  background-color: grey;
+  text-align: left; }
+  footer div {
+    display: flex;
+    justify-content: flex-start; }
+    footer div h3 {
+      color: white;
+      font-family: sans-serif;
+      margin-left: 10px;
+      margin-top: 5px; }
+    footer div span {
+      margin-left: 25px;
+      margin-top: 5px; }
+      footer div span a {
+        text-decoration: none;
+        color: white; }
