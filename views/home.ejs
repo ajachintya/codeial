@@ -1,4 +1,4 @@
-<center>
+
 <h1>Codeal home!</h1>
 
 <section id="feed-posts">
@@ -8,7 +8,16 @@
        <input type="submit" value="Post">
 
     </form>
+    <div id="posts-list" style="width:15%; height:50px;">
+         <ul>
+                <% for(let i of posts){%>
+                    <li>
+                       <p><%= i.content %></p>
+                       <p><%= i.user.name %></p>
+                    </li>
+                <%} %>
+         </ul>
+
+    </div>
 
 </section>
-
-</center>
