@@ -12,7 +12,7 @@ const postSchema=new mongoose.Schema({
         //include the ids of all the comments in this post schema itself
         comments:[{
             type:mongoose.Schema.Types.ObjectId,
-            ref:'comment' 
+            ref:'Comment' 
          }],
 },{
     timestamps:true
