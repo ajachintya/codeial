@@ -1,5 +1,7 @@
 //A group of actions is called as controller
 const Post=require('../models/post');
+
+const User=require('../models/user');
 //an exported function home
 module.exports.home=function(req,res){
     //'home' is for home.ejs 
@@ -24,9 +26,12 @@ module.exports.home=function(req,res){
         }
     })
     .exec(function(err,posts){
-        return res.render('home',{
-            title:"Codeial | home",
-            posts:posts
+        User.find({},function(err,users){
+            return res.render('home',{
+                title:"Codeial | home",
+                posts:posts,
+                all_users:users
+        });
              
     });
     });
