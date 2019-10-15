@@ -1,10 +1,10 @@
 <header>
   <div id="main">
-    <h2 id="heading">Codeial</h2>
+    <h2 id="heading"> <a href="/">Codeial</a></h2>
     <div>
       <% if(locals.user){ %>
           <span>
-             <a href="/users/profile">
+             <a href="/users/profile/<%= user.id %>">
                 <%= user.name %>
             </a>
           </span>
