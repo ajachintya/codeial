@@ -12,9 +12,11 @@ module.exports.create=async function(req,res){
                  });
                      post.comments.push(comment);
                      post.save();
+                     req.flash('success','Comment created');
                      res.redirect('/');
              }
         }catch(err){
+            req.flash('error',err);
             console.log("error" , err);
         }
 }
@@ -40,6 +42,7 @@ module.exports.destory=async function(req,res){
             let postId=comment.post;
             comment.remove();
             let post = Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}});
+            req.flash('success','Comment deleted!');
             return res.redirect('back');       
         }
         else{
