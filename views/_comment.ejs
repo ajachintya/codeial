@@ -1,14 +1,15 @@
 <li>
         <p>
             <%= comment.content %>
-            <% if(locals.user && locals.user.id == comment.user.id || locals.user == post.user.id)   { %>
+            
+             <% if(locals.user && locals.user.id == comment.user.id || locals.user == post.user.id)   { %>
             <small>
                     <a href="/comments/destory/<%= comment.id %>">X</a>
             </small>
-            <%}%>
+            <% } %>
             <br>
             <small>
                 <%= comment.user.name %>
             </small>
         </p>
-        </li>
+</li>

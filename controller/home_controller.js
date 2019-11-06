@@ -3,7 +3,7 @@ const Post=require('../models/post');
 
 const User=require('../models/user');
 //an exported function home
-module.exports.home=function(req,res){
+module.exports.home= async function(req,res){
     //'home' is for home.ejs 
     //rendering home.ejs
     // console.log(req.cookies);
@@ -16,25 +16,26 @@ module.exports.home=function(req,res){
     // })
     
     // });
-
-    Post.find({})
+   try{
+    let posts = await Post.find({})
     .populate('user')
     .populate({
         path:'comments',
         populate:{
            path:'user'
         }
-    })
-    .exec(function(err,posts){
-        User.find({},function(err,users){
+    });
+    let users = await User.find({});
             return res.render('home',{
                 title:"Codeial | home",
                 posts:posts,
                 all_users:users
         });
-             
-    });
-    });
+   }catch(err){
+        console.log('error', err);
+        return;
+   }
+   
 }
 
 //module.exports.actionName=function_name(req,res){}
