@@ -9,15 +9,15 @@ module.exports.create= async function(req,res){
         });
         
         if(req.xhr){
+            post = await post.populate('user', 'name').execPopulate();
             return res.status(200).json({
                 data:{
-                    post: post  
+                    post: post,
                 },
                 message:"Post created"
             });
             
         }
-        req.flash('success','Post created');
         return res.redirect('back');
     }catch(err){
         req.flash('error','Post not created');
@@ -33,10 +33,21 @@ module.exports.destory = async function(req,res){
         if(post.user == req.user.id){
             post.remove();
            await Comment.deleteMany({post:req.params.id});
+           
+           if(req.xhr){
+               return res.status(200).json({
+                   data:{
+                       post_id:req.params.id,
+                   },
+                   message:'post deleted'
+               })
+           }
            req.flash('success','Post deleted');
            return res.redirect('back');
         }else{
+
             return res.redirect('back');
+            
         }
     }catch(err){
         console.log('Error' ,err);
