@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    avatars:{
+    avatar:{
         type:String
     }
 },
@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
 });
 
 let storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function (req, file, cb) { //cb callback
       cb(null,path.join(__dirname,'..',AVATAR_PATH));
     },
     filename: function (req, file, cb) {
