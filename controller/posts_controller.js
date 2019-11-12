@@ -9,6 +9,7 @@ module.exports.create= async function(req,res){
         });
         
         if(req.xhr){
+           // Show the user's name with the post added dynamically 
             post = await post.populate('user', 'name').execPopulate();
             return res.status(200).json({
                 data:{

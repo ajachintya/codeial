@@ -12,6 +12,7 @@
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
+                    //noty to post creation 
                     new Noty({
                         theme: 'relax',
                         text: "Post published!",
@@ -62,6 +63,7 @@
                 url: $(deleteLink).prop('href'),
                 success: function (data) {
                     $(`#post-${data.data.post_id}`).remove();
+                    //noty to all post deletion
                     new Noty({
                         theme: 'relax',
                         text: "Post deleted!",
