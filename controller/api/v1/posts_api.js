@@ -25,18 +25,20 @@ module.exports.destroy = async function(req,res){
     try{
     let post =await Post.findById(req.params.id);
         // .id means converting the object in into string
-       // if(post.user == req.user.id){
+       if(post.user == req.user.id){
            post.remove();
            await Comment.deleteMany({post:req.params.id});
           
            return res.json(200,{
                message:"Posts and associated comments deleted successfully"
            });
-        // }else{
+        }else{
 
-        //     return res.redirect('back');
+            return res.json(401,{
+                message:"You cannot delete this post!"
+            });
             
-        // }
+        }
     }catch(err){
         return res.json(500, {
             message:"Internal server error"
