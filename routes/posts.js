@@ -7,6 +7,6 @@ const router=express.Router();
 const postsControllers = require('../controller/posts_controller');
 
 router.post('/create',passport.checkAuthentication,postsControllers.create);
-router.get('/destory/:id',passport.checkAuthentication,postsControllers.destory);
+router.get('/destroy/:id',passport.checkAuthentication,postsControllers.destroy);
 
 module.exports = router;

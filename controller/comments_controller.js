@@ -35,7 +35,7 @@ module.exports.create = async function (req, res) {
 //         return res.redirect('back');
 //     }
 // })
-module.exports.destory = async function (req, res) {
+module.exports.destroy = async function (req, res) {
     try {
         let comment = await Comment.findById(req.params.id).populate('post');
         if (comment.user == req.user.id || comment.post.user == req.user.id) {
